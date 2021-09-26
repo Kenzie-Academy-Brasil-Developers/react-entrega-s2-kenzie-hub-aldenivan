@@ -1,11 +1,13 @@
+import { AnimationContainer, Background, Container, Content } from "./styles";
 import Button from "../../components/Button";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
-    <div>
-      <div />
-      <div>
-        <div>
+    <Container>
+      <Background />
+      <Content>
+        <AnimationContainer>
           <form>
             <h1>Cadastro</h1>
             <input></input>
@@ -13,11 +15,13 @@ const Signup = () => {
             <input></input>
             <input></input>
             <Button>Enviar</Button>
-            <p>Ja tem uma conta? Faça seu login</p>
+            <p>
+              Ja tem uma conta? Faça seu <Link to="/login">login</Link>
+            </p>
           </form>
-        </div>
-      </div>
-    </div>
+        </AnimationContainer>
+      </Content>
+    </Container>
   );
 };
 
