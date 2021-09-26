@@ -7,7 +7,7 @@ const Input = ({ label, icon: Icon, name, register, error, ...rest }) => {
         {label} {!!error && <span> - {error}</span>}
       </div>
 
-      <InputContainer>
+      <InputContainer isErrored={!!error}>
         {Icon && <Icon size={20} />}
         <input {...register(name)} {...rest} />
       </InputContainer>
