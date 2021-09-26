@@ -1,9 +1,14 @@
-const Input = () => {
+import { Container, InputContainer } from "./styles";
+
+const Input = ({ label, icon, ...rest }) => {
   return (
-    <div>
-      <div>label</div>
-      <input />
-    </div>
+    <Container>
+      <div>{label}</div>
+
+      <InputContainer>
+        <input {...rest} />
+      </InputContainer>
+    </Container>
   );
 };
 
