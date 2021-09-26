@@ -1,7 +1,9 @@
+import { Container } from "./styles";
+
 const Button = ({ children, whiteSchema, ...rest }) => {
-  <buttun whiteSchema={whiteSchema} type="button" {...rest}>
+  <Container whiteSchema={whiteSchema} type="button" {...rest}>
     {children}
-  </buttun>;
+  </Container>;
 };
 
 export default Button;
