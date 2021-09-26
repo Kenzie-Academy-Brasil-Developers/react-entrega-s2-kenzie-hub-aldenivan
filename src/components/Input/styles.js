@@ -24,4 +24,7 @@ export const InputContainer = styled.div`
       color: var(--gray);
     }
   }
+  svg {
+    margin-right: 16px;
+  }
 `;

@@ -6,7 +6,7 @@ const Input = ({ label, icon: Icon, ...rest }) => {
       <div>{label}</div>
 
       <InputContainer>
-        {Icon && <Icon />}
+        {Icon && <Icon size={20} />}
         <input {...rest} />
       </InputContainer>
     </Container>
