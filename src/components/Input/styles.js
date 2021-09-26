@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  text-align: center;
+  text-align: left;
 `;
 
 export const InputContainer = styled.div`
