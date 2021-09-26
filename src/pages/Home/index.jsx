@@ -1,3 +1,4 @@
+import Button from "../../components/Button";
 import { Container, Content } from "./styles";
 
 const Home = () => {
@@ -9,8 +10,8 @@ const Home = () => {
         </h1>
         <span>Organize-se de forma fácil e efetiva</span>
         <div>
-          <button>Cadastre-se</button>
-          <button>Login</button>
+          <Button whiteSchema>Cadastre-se</Button>
+          <Button>Login</Button>
         </div>
       </Content>
     </Container>

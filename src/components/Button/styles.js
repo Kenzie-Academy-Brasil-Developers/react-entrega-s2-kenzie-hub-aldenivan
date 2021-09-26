@@ -10,7 +10,8 @@ export const Container = styled.button`
   margin-top: 16px;
   width: 100%;
   transition: 0.5s;
+
   :hover {
-    border: 2px solid (--orange);
+    border: 2px solid var(--orange);
   }
 `;
