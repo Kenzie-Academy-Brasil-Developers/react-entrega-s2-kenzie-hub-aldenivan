@@ -1,7 +1,14 @@
+import { useHistory } from "react-router";
 import Button from "../../components/Button";
 import { Container, Content } from "./styles";
 
 const Home = () => {
+  const history = useHistory();
+
+  const handleNavigation = (path) => {
+    return history.push(path);
+  };
+
   return (
     <Container>
       <Content>
@@ -10,8 +17,10 @@ const Home = () => {
         </h1>
         <span>Organize-se de forma fácil e efetiva</span>
         <div>
-          <Button whiteSchema>Cadastre-se</Button>
-          <Button>Login</Button>
+          <Button onClick={() => handleNavigation("/signup")} whiteSchema>
+            Cadastre-se
+          </Button>
+          <Button onClick={() => handleNavigation("/login")}>Login</Button>
         </div>
       </Content>
     </Container>
