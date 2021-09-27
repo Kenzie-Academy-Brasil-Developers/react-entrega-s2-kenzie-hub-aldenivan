@@ -28,5 +28,6 @@ export const Container = styled.div`
     font-size: 1.1rem;
     color: var(--orange);
     margin-right: 4x;
+    transform: translateY(2px);
   }
 `;

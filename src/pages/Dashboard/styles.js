@@ -12,7 +12,7 @@ export const InputContainer = styled.div`
   margin-top: 32px;
   padding: 0 38px;
 
-  section {
+  form {
     display: flex;
 
     > div {
@@ -37,6 +37,6 @@ export const TechnologyContainer = styled.div`
 
   div {
     margin-top: 16px;
-    margin-right: 32;
+    margin-right: 32px;
   }
 `;

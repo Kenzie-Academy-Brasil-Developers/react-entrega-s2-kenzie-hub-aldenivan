@@ -35,7 +35,7 @@ const Login = ({ authenticated, setAuthenticated }) => {
       .then((response) => {
         const { token } = response.data;
 
-        localStorage.setItem("@KenzieHub", JSON.stringify(token));
+        localStorage.setItem("@Kenziehub", JSON.stringify(token));
 
         setAuthenticated(true);
 

@@ -2,7 +2,7 @@ import { FiCalendar, FiClipboard } from "react-icons/fi";
 import Button from "../Button";
 import { Container } from "./styled";
 
-const Card = ({ title, date, onClick }) => {
+const Card = ({ title, status, onClick }) => {
   return (
     <Container>
       <span>
@@ -10,7 +10,7 @@ const Card = ({ title, date, onClick }) => {
       </span>
       <hr />
       <time>
-        <FiCalendar /> {date}
+        <FiCalendar /> {status}
       </time>
       <Button onClick={onClick}>Remover</Button>
     </Container>
