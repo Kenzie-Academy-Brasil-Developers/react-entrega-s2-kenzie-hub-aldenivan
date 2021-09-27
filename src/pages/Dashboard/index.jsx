@@ -1,18 +1,32 @@
+import { useForm } from "react-hook-form";
+import { FiEdit2 } from "react-icons/fi";
 import { Redirect } from "react-router";
+import Button from "../../components/Button";
+import Input from "../../components/Input";
+import { Container, InputContainer } from "./styles";
 
 const Dashboard = ({ authenticated }) => {
+  const { register, handleSubmit } = useForm();
+
   if (!authenticated) {
     return <Redirect to="/login" />;
   }
 
   return (
-    <div>
-      <div>
+    <Container>
+      <InputContainer>
         <section>
-          ,<input />
+          ,
+          <Input
+            icon={FiEdit2}
+            placeholder="Nova tecnologia"
+            register={register}
+            name="title"
+          />
+          <Button>Adicionar</Button>
         </section>
-      </div>
-    </div>
+      </InputContainer>
+    </Container>
   );
 };
 
