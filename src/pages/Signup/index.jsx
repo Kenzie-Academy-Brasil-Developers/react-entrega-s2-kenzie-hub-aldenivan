@@ -11,9 +11,11 @@ import {
 import Input from "../../components/Input";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
+import { useHistory } from "react-router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const schema = yup.object().shape({
@@ -43,6 +45,8 @@ const Signup = () => {
     resolver: yupResolver(schema),
   });
 
+  const history = useHistory();
+
   const onSubmitForm = ({
     email,
     name,
@@ -55,8 +59,11 @@ const Signup = () => {
 
     api
       .post("/users", user)
-      .then((response) => console.log(response.data))
-      .catch((err) => console.log(err));
+      .then((_) => {
+        toast.success("Sucesso ao criar a Conta");
+        return history.push("/login");
+      })
+      .catch((err) => toast.error("Erro ao criar a Conta, tente outro email"));
   };
 
   return (
