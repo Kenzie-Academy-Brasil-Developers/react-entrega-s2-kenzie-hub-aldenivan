@@ -49,8 +49,11 @@ const Dashboard = ({ authenticated }) => {
           },
         }
       )
-      .then((_) => loadTechs())
-      .catch((err) => console.log(err));
+      .then((_) => {
+        loadTechs();
+      })
+      .then((_) => toast.success("Nova tech aprendida :)"))
+      .catch((err) => toast.error("Tech ja cadastrada!"));
   };
 
   const tachDeleted = (id) => {
@@ -60,7 +63,10 @@ const Dashboard = ({ authenticated }) => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((_) => loadTechs())
+      .then((_) => {
+        loadTechs();
+      })
+      .then((_) => toast.warning("Tech excluida!!!"))
       .catch((err) => console.log(err));
   };
 

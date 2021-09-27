@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import Background from "../assets/background.jpg";
 
 export default createGlobalStyle`
 
@@ -19,7 +20,8 @@ export default createGlobalStyle`
     }
 
     body {
-        background: var(---vanilla);
+        background: url(${Background}) transparent;
+        transparente: transparent;       
         color: var(---black)
     }
 

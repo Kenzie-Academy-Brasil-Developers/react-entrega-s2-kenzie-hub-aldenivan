@@ -1,4 +1,4 @@
-import { FiCalendar, FiClipboard } from "react-icons/fi";
+import { FiBarChart2, FiCpu } from "react-icons/fi";
 import Button from "../Button";
 import { Container } from "./styled";
 
@@ -6,11 +6,11 @@ const Card = ({ title, status, onClick }) => {
   return (
     <Container>
       <span>
-        <FiClipboard /> {title}
+        <FiCpu /> {title}
       </span>
       <hr />
       <time>
-        <FiCalendar /> {status}
+        <FiBarChart2 /> {status}
       </time>
       <Button onClick={onClick}>Remover</Button>
     </Container>

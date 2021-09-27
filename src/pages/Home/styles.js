@@ -14,9 +14,12 @@ export const Content = styled.div`
   h1 {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 2.5rem;
+    color: var(--white);
+    text-shadow: 0 0 0.08em #00f, 0 0 0.08em #00f;
 
     span {
       color: var(--orange);
+      text-shadow: 0 0 0.1em var(--orange), 0 0 0.1em var(-orange);
     }
   }
 
@@ -34,5 +37,7 @@ export const Content = styled.div`
     margin-bottom: 1rem;
     font-size: 1.8rem;
     flex-wrap: wrap;
+    color: var(--white);
+    text-shadow: 0 0 0.05em #fff, 0 0 0.05em #fff;
   }
 `;

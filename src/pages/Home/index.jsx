@@ -17,7 +17,7 @@ const Home = ({ authenticated }) => {
     <Container>
       <Content>
         <h1>
-          do<span>.</span>it
+          Kenzie<span>.</span>Hub
         </h1>
         <span>Organize-se de forma fácil e efetiva</span>
         <div>

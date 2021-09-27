@@ -6,6 +6,7 @@ export const Container = styled.div`
   div {
     span {
       color: var(--red);
+      text-shadow: 0 0 0.05em var(--red), 0 0 0.05em var(--red);
     }
   }
 `;
@@ -15,6 +16,7 @@ export const InputContainer = styled.div`
   border-radius: 10px;
   border: 2px solid var(--gray);
   color: var(--gray);
+  margin-bottom: 10px;
   padding: 1rem;
   width: 100%;
   display: flex;
