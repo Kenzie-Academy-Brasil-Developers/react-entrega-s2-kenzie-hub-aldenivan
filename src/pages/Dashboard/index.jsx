@@ -2,8 +2,9 @@ import { useForm } from "react-hook-form";
 import { FiEdit2 } from "react-icons/fi";
 import { Redirect } from "react-router";
 import Button from "../../components/Button";
+import Card from "../../components/Card";
 import Input from "../../components/Input";
-import { Container, InputContainer } from "./styles";
+import { Container, InputContainer, TechnologyContainer } from "./styles";
 
 const Dashboard = ({ authenticated }) => {
   const { register, handleSubmit } = useForm();
