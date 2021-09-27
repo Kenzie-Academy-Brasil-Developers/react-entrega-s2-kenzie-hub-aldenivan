@@ -36,23 +36,19 @@ const Login = () => {
 
   const history = useHistory();
 
-  const onSubmitForm = ({
-    email,
-    name,
-    password,
-    course_module,
-    bio,
-    contact,
-  }) => {
-    const user = { email, name, password, course_module, bio, contact };
-
+  const onSubmitForm = (data) => {
     api
-      .post("/users", user)
-      .then((_) => {
-        toast.success("Sucesso ao criar a Conta");
-        return history.push("/login");
+      .post("/sessions", data)
+      .then((response) => {
+        const { token } = response.data;
+
+        localStorage.setItem("@kenzieHub", token);
+
+        toast.success("Login feito com sucesso");
+
+        return history.push("/dashboard");
       })
-      .catch((err) => toast.error("Erro ao criar a Conta, tente outro email"));
+      .catch((err) => toast.error("Email ou senha inválidos"));
   };
 
   return (
