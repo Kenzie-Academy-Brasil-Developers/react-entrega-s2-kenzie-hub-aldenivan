@@ -1,13 +1,6 @@
 import { AnimationContainer, Background, Container, Content } from "./styles";
 import Button from "../../components/Button";
-import {
-  FiUser,
-  FiMail,
-  FiLock,
-  FiBookOpen,
-  FiPhone,
-  FiBook,
-} from "react-icons/fi";
+import { FiMail, FiLock } from "react-icons/fi";
 import Input from "../../components/Input";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
@@ -42,7 +35,7 @@ const Login = ({ authenticated, setAuthenticated }) => {
       .then((response) => {
         const { token } = response.data;
 
-        localStorage.setItem("@KenzieHub", token);
+        localStorage.setItem("@KenzieHub", JSON.stringify(token));
 
         setAuthenticated(true);
 
