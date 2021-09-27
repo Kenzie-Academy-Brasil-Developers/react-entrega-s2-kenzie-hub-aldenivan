@@ -1,19 +1,33 @@
 import { AnimationContainer, Background, Container, Content } from "./styles";
 import Button from "../../components/Button";
-import { FiUser, FiMail, FiLock } from "react-icons/fi";
+import {
+  FiUser,
+  FiMail,
+  FiLock,
+  FiBookOpen,
+  FiPhone,
+  FiBook,
+} from "react-icons/fi";
 import Input from "../../components/Input";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import api from "../../services/api";
 
 const Signup = () => {
   const schema = yup.object().shape({
     name: yup.string().required("Campo Obrigatório!"),
     email: yup.string().email("Email inválido").required("Campo Obrigatório!"),
+    bio: yup
+      .string()
+      .max(150, "Máximo 150 caracteres")
+      .required("Campo Obrigatório!"),
+    contact: yup.string().required("Campo Obrigatório!"),
+    course_module: yup.string().required("Campo Obrigatório!"),
     password: yup
       .string()
-      .min(8, "Mínimo 8 digítos")
+      .min(6, "Mínimo 8 digítos")
       .required("Campo Obrigatório!"),
     passwordConfirm: yup
       .string()
@@ -29,8 +43,20 @@ const Signup = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmitForm = (data) => {
-    console.log(data);
+  const onSubmitForm = ({
+    email,
+    name,
+    password,
+    course_module,
+    bio,
+    contact,
+  }) => {
+    const user = { email, name, password, course_module, bio, contact };
+
+    api
+      .post("/users", user)
+      .then((response) => console.log(response.data))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -58,6 +84,30 @@ const Signup = () => {
             />
             <Input
               register={register}
+              icon={FiBookOpen}
+              label="Bio"
+              placeholder="Fale um pouco de você"
+              name="bio"
+              error={errors.bio?.message}
+            />
+            <Input
+              register={register}
+              icon={FiPhone}
+              label="Contact"
+              placeholder="Contato"
+              name="contact"
+              error={errors.contact?.message}
+            />
+            <Input
+              register={register}
+              icon={FiBook}
+              label="Course Module"
+              placeholder="Qual quarter você está?"
+              name="course_module"
+              error={errors.course_module?.message}
+            />
+            <Input
+              register={register}
               icon={FiLock}
               label="Password"
               placeholder="Uma senha segura"
@@ -71,7 +121,7 @@ const Signup = () => {
               label="Confirm Password"
               placeholder="Confirme sua senha"
               type="password"
-              name="passwordConfirme"
+              name="passwordConfirm"
               error={errors.passwordConfirm?.message}
             />
             <Button type="submit">Enviar</Button>
