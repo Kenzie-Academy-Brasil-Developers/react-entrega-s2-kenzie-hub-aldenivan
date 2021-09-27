@@ -11,13 +11,13 @@ import {
 import Input from "../../components/Input";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
-import { useHistory } from "react-router";
+import { Redirect, useHistory } from "react-router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
 import { toast } from "react-toastify";
 
-const Login = () => {
+const Login = ({ authenticated, setAuthenticated }) => {
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo Obrigatório!"),
     password: yup
@@ -42,7 +42,9 @@ const Login = () => {
       .then((response) => {
         const { token } = response.data;
 
-        localStorage.setItem("@kenzieHub", token);
+        localStorage.setItem("@KenzieHub", token);
+
+        setAuthenticated(true);
 
         toast.success("Login feito com sucesso");
 
@@ -50,6 +52,10 @@ const Login = () => {
       })
       .catch((err) => toast.error("Email ou senha inválidos"));
   };
+
+  if (authenticated) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <Container>
