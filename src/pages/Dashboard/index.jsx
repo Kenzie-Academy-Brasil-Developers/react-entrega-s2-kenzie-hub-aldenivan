@@ -5,7 +5,15 @@ const Dashboard = ({ authenticated }) => {
     return <Redirect to="/login" />;
   }
 
-  return <h1>Dashboard</h1>;
+  return (
+    <div>
+      <div>
+        <section>
+          ,<input />
+        </section>
+      </div>
+    </div>
+  );
 };
 
 export default Dashboard;
